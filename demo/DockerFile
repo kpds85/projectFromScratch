@@ -1,0 +1,10 @@
+#Base Image Java 17
+FROM openjdk:17-jdk-alpine
+#Sets the working directory inside the container
+WORKDIR /demo
+#Copy jar from this directory to containers app directory and name it as app.jar
+COPY target/demo-1.0-SNAPSHOT.jar app.jar
+#Expose the port on which the Spring Boot application runs
+EXPOSE 8080
+#Define CMD to run the application
+CMD ["java" ,"-jar", "app.jar"]
